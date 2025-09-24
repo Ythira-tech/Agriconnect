@@ -1,0 +1,109 @@
+:root{
+  --gold: #a67c3a;     /* warm golden-brown tint */
+  --green: #4b7f2a;    /* garden green tint        */
+  --text-on: #ffffff;  /* text on tinted images    */
+  --maxw: 1400px;
+}
+
+.feature-strip{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #2D5128;
+  gap: 0;              /* flush columns like the mock */
+}
+
+/* Each panel uses an image with a color overlay via blend mode */
+.panel{
+  position: relative;
+  min-height: 460px;
+  color: var(--text-on);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* create the color wash without extra layers */
+  background-color: rgba(0,0,0,.35);
+  background-blend-mode: multiply;
+  overflow: hidden;
+}
+
+.panel--gold{
+  background-color: color-mix(in srgb, var(--gold) 78%, black);
+}
+
+.panel--green{
+  background-color: color-mix(in srgb, var(--green) 78%, black);
+}
+
+.panel__inner{
+  padding: 56px 48px;
+}
+
+.panel__icon{
+  margin-bottom: 20px;
+  opacity: .95;
+}
+
+.icon{
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.6;
+}
+
+.panel__title{
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.panel__subtitle{
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 0 0 14px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.panel__text{
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 46ch;
+  opacity: .9;
+  margin: 0 0 18px;
+  font-family: 'Lora', serif;
+}
+
+.panel__link{
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.7);
+  padding-bottom: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+  font-family: 'Lora', serif;
+}
+.panel__link:hover{
+  transform: translateY(-1px);
+  opacity: .85;
+}
+
+/* simple spacing helper for the second list in the green card */
+.mt-24{ margin-top: 24px; }
+
+/* Responsive tweaks */
+@media (max-width: 1024px){
+  .panel__inner{ padding: 44px 32px; }
+  .panel__title{ font-size: 28px; }
+}
+@media (max-width: 860px){
+  .feature-strip{ grid-template-columns: 1fr; }
+  .panel{ min-height: 380px; }
+}
