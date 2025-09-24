@@ -39,7 +39,7 @@ function CropLibrary() {
 
     {/* Vegetables */}
     <div className="library-item">
-      <img src="/assets/Vegetables.jpeg" alt="Vegetables" className="library-photo" />
+      <img src="https://i.pinimg.com/1200x/97/77/c5/9777c5c1bbc6b209f543fdbd17fa7a70.jpg" alt="Vegetables" className="library-photo" />
       <div className="library-content">
         <h3>Vegetables</h3>
         <p>Essential crops for nutrition and daily meals, grown across all regions.</p>
