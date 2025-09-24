@@ -1,0 +1,132 @@
+.login-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6") no-repeat center center/cover;
+}
+
+/* Left side */
+.login-left {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  background: rgba(0, 40, 0, 0.7); /* Dark green overlay */
+}
+
+.login-left h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.login-left p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Right side */
+.login-right {
+  flex: 1;
+  background: rgba(0, 30, 0, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  border-radius: 10px;
+  margin: auto;
+  max-width: 480px;
+}
+
+.login-right h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.login-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-right input {
+  margin: 10px 0;
+  padding: 14px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.login-btn {
+  background: #0b6623; /* Dark green */
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #0e4d1d;
+}
+
+/* OR Section */
+.or-section {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.or-section span {
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+.or-section p {
+  margin: 0 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Social buttons */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: #0b6623;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Sign up text */
+.signup-text {
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.signup-text a {
+  color: #0b6623;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
