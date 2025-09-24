@@ -46,8 +46,8 @@ const WhyFarmers = () => {
 
         <div className="why-card">
           <img src="/assets/Chatbox.jpeg" alt="Training" />
-          <h3>Training & Webinars</h3>
-          <p>Learn modern farming methods directly from experts online.</p>
+          <h3>Chat with AI</h3>
+          <p>Learn modern farming methods directly from AI.</p>
         </div>
 
         <div className="why-card">
