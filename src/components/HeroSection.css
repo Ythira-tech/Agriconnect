@@ -1,0 +1,63 @@
+/* Full Hero container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+
+/* Overlay collage structure */
+.overlay-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-auto-rows: 120px;
+  gap: 20px;
+}
+
+/* Default box style */
+.overlay-grid .box {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom sizing to mimic your reference image */
+.box1 {
+  grid-column: span 2; /* wider box */
+  grid-row: span 2;    /* taller box */
+}
+.box2 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.box3 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.box4 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.box5 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+.box6 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.box7 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.box8 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
