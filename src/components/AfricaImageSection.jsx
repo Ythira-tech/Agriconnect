@@ -17,7 +17,7 @@ export default function AfricaImageSection() {
         </defs>
 
         <image
-          href="../assets/Market.jpeg"   // put your actual image in public/
+          href="../assets/Tractor.jpeg"   // put your actual image in public/
           width="100%"
           height="100%"
           clipPath="url(#africaClip)"
