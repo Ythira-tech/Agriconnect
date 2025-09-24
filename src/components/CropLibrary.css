@@ -1,0 +1,63 @@
+.mini-crop-library {
+  padding: 40px;
+  text-align: center;
+  background: #fff;
+}
+
+.library-title {
+  margin-bottom: 30px;
+  font-size: 2.7rem;
+  color: #2D5128;
+   text-decoration: underline;
+  text-decoration-thickness: 3px; /* make it bold */
+  text-underline-offset: 6px; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+  gap: 30px; /* spacing between items */
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.library-photo {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.library-content h3 {
+  margin: 0 0 10px;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.library-content p {
+  margin: 0 0 15px;
+  color: #555;
+  font-family: 'Lora', serif;
+}
+
+.learn-btn {
+  padding: 8px 15px;
+  background: #2a7b2a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Lora', serif;
+}
+
+.learn-btn:hover {
+  background: #256e25;
+}
