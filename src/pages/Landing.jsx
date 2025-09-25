@@ -1,7 +1,6 @@
 // src/pages/Landing.jsx
 import React from "react";
 import "./Landing.css";
-import CropLibrary from "../components/CropLibrary";
 import { FaHome, FaSeedling, FaUsers, FaComments, FaCogs } from "react-icons/fa";
 
 const Landing = () => {
@@ -36,30 +35,7 @@ const Landing = () => {
           <p>Your personalized agricultural hub starts here.</p>
         </section>
 
-        {/* Crop Library Section */}
-        <section id="library" className="section">
-          <h2>🌱 Explore Crop Library</h2>
-          <CropLibrary />
-        </section>
-
-        {/* Direct Market Access */}
-        <section id="features" className="why-card">
-          <img src="/assets/Market.jpeg" alt="Market Access" />
-          <h3>Direct Market Access</h3>
-          <p>Skip the brokers and sell directly. Earn more from every harvest.</p>
-        </section>
-
-        {/* Farmers Section */}
-        <section id="farmers" className="section">
-          <h2>👩🏾‍🌾 Connect with Farmers</h2>
-          <p>Build networks, share knowledge, and collaborate with fellow farmers.</p>
-        </section>
-
-        {/* Chat Section */}
-        <section id="chat" className="section">
-          <h2>💬 Community Chat</h2>
-          <p>Engage in real-time conversations with farmers, experts, and buyers.</p>
-        </section>
+        
       </div>
     </div>
   );
