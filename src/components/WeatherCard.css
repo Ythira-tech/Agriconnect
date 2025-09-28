@@ -1,0 +1,45 @@
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weather-card.current {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.forecast-section {
+  margin-top: 20px;
+}
+
+.forecast-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.no-weather {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555; /* soft gray */
+  background: rgba(255, 255, 255, 0.6); /* glassy look */
+  padding: 15px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px); /* subtle blur */
+  -webkit-backdrop-filter: blur(6px); /* safari support */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin: 20px auto;
+  width: fit-content;
+}
