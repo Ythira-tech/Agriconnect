@@ -15,6 +15,7 @@ const SearchBar = ({ city, setCity, fetchWeather }) => {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         onKeyPress={handleKeyPress}
+        className="search-input"
       />
       <button onClick={fetchWeather}>
         <FaSearch />

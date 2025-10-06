@@ -1,0 +1,44 @@
+.future-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px 10%;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.future-text h1 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.future-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.future-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.future-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

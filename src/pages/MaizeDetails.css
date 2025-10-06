@@ -1,0 +1,97 @@
+/* Container */
+.maize-container {
+  font-family: "Lora", serif;
+  padding: 40px;
+  background: #f9fafb;
+  color: #2e2e2e;
+}
+
+/* Hero Section */
+.maize-hero {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.maize-hero h1 {
+  font-size: 2.5rem;
+  color: #2e7d32; /* deep green */
+  margin-bottom: 10px;
+}
+
+.maize-hero p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Section */
+.maize-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.maize-text h2 {
+  font-size: 2rem;
+  color: #1b5e20;
+  margin-bottom: 10px;
+}
+
+.maize-text ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.maize-text ul li {
+  margin: 10px 0;
+  font-size: 1.3rem;
+  padding-left: 10px;
+  border-left: 3px solid #ffb300; /* yellow accent */
+}
+
+.maize-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #444;
+  font-size: 1.3rem;
+}
+
+/* Image Styling */
+.maize-image img {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  height: 70vh;
+}
+
+.maize-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maize-content {
+    grid-template-columns: 1fr;
+  }
+
+  .maize-image {
+    margin-top: 20px;
+  }
+}

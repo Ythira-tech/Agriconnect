@@ -19,6 +19,7 @@
 .login-left h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 .login-left p {
@@ -45,6 +46,7 @@
   margin-bottom: 2rem;
   font-size: 1.8rem;
   text-align: center;
+  color: white;
 }
 
 .login-right form {

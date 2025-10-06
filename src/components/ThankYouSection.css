@@ -1,0 +1,80 @@
+.thankyou-section {
+  
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 3px solid #43a047;
+  border-radius: 25px 25px 0 0;
+  margin-top: 4rem;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.thankyou-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.thankyou-section h2 {
+  font-size: 2.2rem;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.thankyou-section h2 span {
+  color: #43a047;
+}
+
+.thankyou-section p {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.thankyou-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #43a047;
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(67, 160, 71, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #2e7d32;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 2px solid #43a047;
+  color: #43a047;
+  padding: 0.9rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #43a047;
+  color: white;
+}
+
+.thankyou-footer {
+  margin-top: 3rem;
+  border-top: 1px solid #c8e6c9;
+  padding-top: 1rem;
+}
+
+.thankyou-footer p {
+  font-size: 0.95rem;
+  color: #fff;
+}

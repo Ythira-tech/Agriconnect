@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./SmartTools.css";
 
 const SmartTools = () => {
+  const navigate = useNavigate();
+
   const tools = [
     {
       title: "📊 Fertilizer Calculator",
@@ -40,7 +43,19 @@ const SmartTools = () => {
           <div className="tool-card" key={index}>
             <h3>{tool.title}</h3>
             <p>{tool.description}</p>
-            <button>{tool.action}</button>
+            <button
+             onClick={() => {
+    if (tool.title.includes("Fertilizer")) {
+      navigate("/fertilizer-calculator");
+    } else if (tool.title.includes("Planting")) {
+      navigate("/planting-calendar");
+    } else if (tool.title.includes("Irrigation")) {
+      navigate("/irrigation-estimator");
+    } else if (tool.title.includes("Yield")) {
+      navigate("/yield-predictor");
+    }
+  }}
+            >{tool.action}</button>
           </div>
         ))}
       </div>

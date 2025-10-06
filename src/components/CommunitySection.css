@@ -1,0 +1,67 @@
+.community-section {
+  background: linear-gradient(135deg, #e9f5e9, #fdfdfd);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.community-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.community-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.community-text h2 {
+  font-size: 2.2rem;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+
+.community-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.enter-chat-btn {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(67, 160, 71, 0.3);
+}
+
+.enter-chat-btn:hover {
+  background-color: #2e7d32;
+  transform: translateY(-3px);
+}
+
+.community-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.community-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

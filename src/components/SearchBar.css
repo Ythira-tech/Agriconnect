@@ -1,54 +1,45 @@
 .search-bar {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  margin: 20px auto;
   width: 100%;
-  max-width: 550px; /* keeps it wide but not oversized */
-  margin: 1rem auto;
-
-  /* glass effect */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 0.5rem 0.8rem;
-
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-left: 200px;
+  max-width: 450px; /* keeps it balanced */
+  background: rgba(255, 255, 255, 0.08); /* glassy effect */
+  border-radius: 40px;
+  padding: 6px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px); /* frosted glass */
 }
 
-.search-bar input {
+.search-input {
   flex: 1;
-  padding: 0.8rem 1rem;
   border: none;
   outline: none;
   background: transparent;
-  color: #fff;
-  font-size: 1rem;
+  color: #fff; /* stands out on dark background */
+  font-size: 16px;
+  padding: 10px 15px;
 }
 
-.search-bar input::placeholder {
+.search-input::placeholder {
   color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
 }
 
-.search-bar button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.6rem 1rem;
+.search-btn {
+  background: linear-gradient(135deg, #28a745, #218838); /* premium green gradient */
   border: none;
-  border-radius: 8px;
-
-  background: linear-gradient(135deg, #4cafef, #357edd);
+  outline: none;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 18px;
+  padding: 10px 14px;
+  border-radius: 50%;
   cursor: pointer;
-
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-bar button:hover {
-  background: linear-gradient(135deg, #5db1ff, #2666cc);
-  transform: scale(1.05);
+.search-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(40, 167, 69, 0.7);
 }

@@ -1,22 +1,37 @@
-// src/pages/Signup.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"; // <-- added
 import "./Signup.css";
 
 function Signup() {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");       // added
+  const [password, setPassword] = useState(""); // added
+  const [confirmPassword, setConfirmPassword] = useState(""); // added
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/landing");
 
-    localStorage.setItem("user", JSON.stringify({ name: userName }));
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
 
-    alert("Signup successful!");
-    navigate("/landing");
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/register", {
+        name: userName,
+        email,
+        password,
+      });
+
+      alert(response.data.message); // "User registered successfully"
+      navigate("/landing");
+    } catch (error) {
+      console.error("Signup error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Signup failed. Try again.");
+    }
   };
 
   return (
@@ -40,20 +55,40 @@ function Signup() {
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="text" placeholder="Your Name" 
-            value={userName}
-             onChange={(e) => setUserName(e.target.value)}
-            required />
+            <input 
+              type="text" 
+              placeholder="Your Name" 
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required 
+            />
           </div>
           <div className="input-group">
-            <input type="email" placeholder="Your Email" 
-            required />
+            <input 
+              type="email" 
+              placeholder="Your Email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+            />
           </div>
           <div className="input-group">
-            <input type="password" placeholder="Create Password" required />
+            <input 
+              type="password" 
+              placeholder="Create Password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
           </div>
           <div className="input-group">
-            <input type="password" placeholder="Repeat Password" required />
+            <input 
+              type="password" 
+              placeholder="Repeat Password" 
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required 
+            />
           </div>
           <button type="submit" className="signup-btn">
             Join Free

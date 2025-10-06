@@ -8,7 +8,7 @@ const NavbarLayout = ({ children }) => {
   return (
     <div className="app">
       <Landing />
-      <div className="main-content">
+      <div className="nav-links">
         {children}
         </div>
     </div>

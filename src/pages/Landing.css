@@ -2,83 +2,28 @@
 .landing-container {
   display: flex;
   min-height: 100vh;
-  background: url("https://i.pinimg.com/736x/cc/fa/00/ccfa009501d6b4e0d1c5cba34cdeb0e6.jpg") no-repeat center center;
+  background: url("https://i.pinimg.com/736x/4c/11/ab/4c11aba042b8efbeb1c9fa3fc1d54349.jpg") no-repeat center center;
   background-size: cover;
 
   
 }
 
-/* Sidebar */
-.sidebar {
- 
-  width: 250px; /* adjust based on your layout */
-  min-height: 100vh; /* make it stretch full height */
-
-  /* background image */
-  background: url("https://i.pinimg.com/1200x/04/ae/09/04ae090e423021079ceacaa3915d6288.jpg") no-repeat center center;
-  background-size: cover;
-
-  /* optional: add a semi-transparent overlay */
-  background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
-  
-  
-
-  /* styling */
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
 
 
-.logo {
-  font-size: 2rem;
+.header {
+  font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Search bar */
-.sidebar-search {
-  margin-bottom: 20px;
-}
 
-.sidebar-search input {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  font-family: 'Lora', serif;
-}
-
-/* Navigation */
-.nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  font-size: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: 0.3s;
-  font-family: 'Lora', serif;
-}
-
-.nav-links a:hover {
-  color: #c8e6c9;
-}
 
 /* Main content */
 .main-content {
   flex: 1;
   padding: 40px;
-  background: url("https://i.pinimg.com/736x/cc/fa/00/ccfa009501d6b4e0d1c5cba34cdeb0e6.jpg") no-repeat center center;
+  background: url("https://i.pinimg.com/736x/4c/11/ab/4c11aba042b8efbeb1c9fa3fc1d54349.jpg") no-repeat center center;
   background-size: cover;
   background-position: center;
     background-attachment: fixed;
@@ -115,45 +60,157 @@ h2, h3, h4 {
   font-family: 'Lora', serif;
 }
 
-/* Weather search above cards */
-.weather-search {
-  margin: 15px 0;
+/* Push the page content down so navbar doesn’t overlap */
+.main-content {
+  padding-top: 90px;
 }
 
-.weather-search input {
-  width: 200px;
-  padding: 6px;
+
+/* Hero Section */
+.photo {
+ position: relative;
+  height: 70vh;
+  background: url("https://plus.unsplash.com/premium_photo-1661907005604-cec7ffb6a042?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #a8ffbf;
   border-radius: 12px;
-  border: 1px solid #4CAF50;
 }
 
-.weather-search button {
-  padding: 6px 10px;
-  margin-left: 5px;
-  border: none;
-  border-radius: 8px;
-  background: #4CAF50;
-  color: white;
-  cursor: pointer;
+.photo .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* darkens the photo */
 }
-.welcome h2 {
-  font-size: 2.9rem;
-  margin-left: 200px;
-  margin-top: 10px;
+
+
+.photo-overlay {
+  position: relative;
+  text-align: center;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.photo-overlay h2 {
+  font-size: 3.5rem;
   font-family: 'Montserrat', sans-serif;
-  color: darkgray;
-}
-.welcome p {
-  font-size: 1.2rem;
-  margin-left: 270px;
-  font-family: 'Lora', serif;
-  color: #e8f5e9;
-}
-.weather-section h2 {
-  margin-top: 40px;
   margin-bottom: 20px;
-  margin-left: 300px;
-  font-size: 2.2rem;
-  color: darkgray;
-  font-family: 'Montserrat', sans-serif;
+  color: #a8ffbf;
+  text-shadow: 0px 4px 6px rgba(0,0,0,0.7);
 }
+
+.photo-overlay p {
+  font-size: 2rem;
+  font-family: 'Lora', serif;
+  margin-bottom: 170px;
+  color: #a8ffbf;
+  text-shadow: 0px 4px 6px rgba(0,0,0,0.7);
+}
+
+/* Transparent Navbar */
+.top-navbar {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 4px 19px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+
+.top-navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  margin-top: 10rem;
+}
+.photo-overlay .search-bar {
+  margin-bottom: 150px;
+}
+
+
+.search-bar input {
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  width: 280px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: black;
+}
+.search-bar button {
+  margin-left: 10px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background-color: #28a745;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #3ddc84;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #28a745;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 70px; /* adjust according to navbar height */
+  right: 20px;
+  width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+

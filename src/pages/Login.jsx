@@ -1,5 +1,6 @@
 import React, { useState }  from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // <-- added
 import "./Login.css";
 
 function Login() {
@@ -8,14 +9,25 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/landing");
-    
-    localStorage.setItem("user", JSON.stringify({ name: email }));
 
-    alert("Login successful!");
-    navigate("/landing");
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
+
+      // save token and user info
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      alert("Login successful!");
+      navigate("/landing");
+    } catch (error) {
+      console.error("Login error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Login failed. Check your credentials.");
+    }
   };
 
   return (
@@ -34,16 +46,22 @@ function Login() {
         <h3>Login</h3>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
-            <input type="email" placeholder="Your Email" 
-            value={email}
+            <input 
+              type="email" 
+              placeholder="Your Email" 
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
-            required />
+              required 
+            />
           </div>
           <div className="input-group">
-            <input type="password" placeholder="Password" 
-            value={password}
+            <input 
+              type="password" 
+              placeholder="Password" 
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
-            required />
+              required 
+            />
           </div>
 
           <button type="submit" className="login-btn">Login</button>

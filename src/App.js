@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 import HeroSection from './components/HeroSection';
 import AfricaImageSection from './components/AfricaImageSection';
 import CropLibrary from './components/CropLibrary';
@@ -11,17 +12,36 @@ import Footer from './components/Footer';
 import Signup from './pages/Signup'; 
 import Login from './pages/Login';
 import Landing from './pages/Landing';
+import ExploreCrops from "./pages/ExploreCrops";
+import Marketplace from "./pages/Marketplace";
+import KnowledgeHub from './pages/KnowledgeHub';
+import Community from './pages/Community';
+import Resources from './pages/Resources';
+import FutureDetails from "./pages/FutureDetails";
+import MaizeDetails from "./pages/MaizeDetails";
+import Weather from "./pages/Weather";
+import BuyandSell from "./pages/BuyandSell";
+import Chatbox from "./pages/Chatbox";
+import CropInfo from './pages/CropInfo';
+import FertilizerCalculator from './pages/FertilizerCalculator';
+import PlantingAndHarvestCalendar from './pages/PlantingAndHarvestCalendar';
+import IrrigationEstimator from './pages/IrrigationEstimator';
+import YieldProfitPredictor from './pages/YieldProfitPredictor';
+import CommunityChat from "./pages/CommunityChat";
 
 function App() {
   return (
     <Router>
+       
       <Routes>
         {/* Homepage route */}
         <Route
           path="/"
           element={
             <>
+            
               <HeroSection />
+              
               <AfricaImageSection />
               <CropLibrary />
               <WhyFarmers />
@@ -39,6 +59,38 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/landing" element={<Landing />} />
+
+        <Route path="/explore-crops" element={<ExploreCrops />} />
+
+        <Route path="/market" element={<Marketplace />} />
+
+        <Route path="/knowledge" element={<KnowledgeHub />} />
+
+        <Route path="/community" element={<Community />} />
+
+        <Route path="/resources" element={<Resources />} />
+
+        <Route path="/future-details" element={<FutureDetails />} />
+
+        <Route path="/maize-details" element={<MaizeDetails />} />
+
+        <Route path="/chatbox" element={<Chatbox />} />
+
+        <Route path="/weather" element={<Weather />} />
+
+        <Route path="/buyandsell" element={<BuyandSell />} />
+
+         <Route path="/crop-info" element={<CropInfo />} />
+
+         <Route path="/fertilizer-calculator" element={<FertilizerCalculator />} />
+
+         <Route path="/planting-calendar" element={<PlantingAndHarvestCalendar />} />
+
+         <Route path="/irrigation-estimator" element={<IrrigationEstimator />} />
+
+         <Route path="/yield-predictor" element={<YieldProfitPredictor />} />
+
+         <Route path="/community-chat" element={<CommunityChat />} />
       </Routes>
     </Router>
   );

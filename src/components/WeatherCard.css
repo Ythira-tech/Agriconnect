@@ -1,45 +1,99 @@
-.weather-wrapper {
+/* src/components/WeatherCard.css */
+.weather-container {
+  width: 95%;
+  max-width: 1100px;
+  margin: 30px auto;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.current-card {
+  background: rgba(255,255,255,0.06);
+  padding: 18px 22px;
+  border-radius: 14px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom: 14px;
 }
 
-.weather-card.current {
-  background: #e3f2fd;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-}
-
-.forecast-section {
-  margin-top: 20px;
-}
-
-.forecast-grid {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.forecast-card {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  width: 120px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.no-weather {
-  text-align: center;
+.current-card .location {
   font-size: 1.2rem;
-  font-weight: 500;
-  color: #555; /* soft gray */
-  background: rgba(255, 255, 255, 0.6); /* glassy look */
-  padding: 15px 20px;
-  border-radius: 10px;
-  backdrop-filter: blur(6px); /* subtle blur */
-  -webkit-backdrop-filter: blur(6px); /* safari support */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  margin: 20px auto;
-  width: fit-content;
+  font-weight: 700;
+  color: #eaffea;
+}
+
+.current-card .current-temp {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #bfffbf;
+}
+
+.current-card .current-desc {
+  font-style: italic;
+  opacity: 0.95;
+}
+
+/* forecast title */
+.forecast-title {
+  margin: 10px 0 18px 6px;
+  font-weight: 600;
+  color: #c6ffd0;
+}
+
+/* grid */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 14px;
+}
+
+/* each small card */
+.forecast-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+.forecast-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.28);
+}
+
+.forecast-card .day {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #dfffe0;
+}
+
+.forecast-card .icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.forecast-card .temp-range {
+  font-weight: 700;
+  color: #e6ffe6;
+  margin-bottom: 6px;
+}
+
+.forecast-card .short-desc {
+  font-size: 0.9rem;
+  opacity: 0.95;
+  color: #dfffe0;
+}
+
+/* no data */
+.no-data {
+  color: #fff;
+  margin-top: 30px;
+  text-align: center;
+  opacity: 0.9;
 }
