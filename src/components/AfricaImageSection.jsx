@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./AfricaImageSection.css";
 
 export default function AfricaImageSection() {
@@ -30,7 +31,9 @@ export default function AfricaImageSection() {
         <p>
           Agriculture is more than just farming—it’s the foundation of life, community, and progress. By embracing smarter, sustainable practices today, we ensure healthier harvests, empowered farmers, and stronger communities tomorrow. Every seed planted carries the promise of growth, innovation, and resilience. Together, we can cultivate not only the land but also a future where food security, environmental balance, and prosperity go hand in hand.
         </p>
-        <button>Learn More</button>
+        <Link to="/future-details">
+  <button className="learn-more-btn">Learn More</button>
+</Link>
       </div>
   </section>
   );

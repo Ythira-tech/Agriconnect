@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./CropLibrary.css";
 
 function CropLibrary() {
@@ -13,7 +14,11 @@ function CropLibrary() {
       <div className="library-content">
         <h3>Maize</h3>
         <p>The staple food crop across Africa, known for resilience and versatility.</p>
-        <button className="learn-btn">Learn More</button>
+        <Link to="/maize-details">
+        <button className="learn-btn">
+          Learn More
+        </button>
+        </Link>
       </div>
     </div>
 
