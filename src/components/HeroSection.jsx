@@ -124,8 +124,8 @@ const HeroSection = () => {
             fontfamily: "'Lora', serif",
           }}
         >
-          <a
-            href="/market"
+          <Link
+              to="/market"
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -135,9 +135,9 @@ const HeroSection = () => {
             }}
           >
             Marketplace
-          </a>
-          <a
-            href="/knowledge"
+          </Link>
+          <Link
+              to="/knowledge"
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -147,7 +147,7 @@ const HeroSection = () => {
             }}
           >
             Knowledge Hub
-          </a>
+          </Link>
           <a
             href="/community"
             style={{
@@ -160,8 +160,8 @@ const HeroSection = () => {
           >
             Community
           </a>
-          <a
-            href="/resources"
+          <Link
+              to="/resources"
             style={{
               color: "#fff",
               textDecoration: "none",
@@ -171,7 +171,7 @@ const HeroSection = () => {
             }}
           >
             Resources
-          </a>
+          </Link>
         </div>
 
         {/* Tagline + CTAs (Left Side) */}
@@ -188,6 +188,7 @@ const HeroSection = () => {
         >
           <h2
             style={{
+              color: "#fff",
               fontSize: "36px",
               fontWeight: "700",
               lineHeight: "1.3",
@@ -200,8 +201,8 @@ const HeroSection = () => {
           </h2>
 
           <div style={{ display: "flex", gap: "15px" }}>
-            <a
-              href="/crops"
+            <Link
+              to="/explore-crops"
               style={{
                 padding: "12px 24px",
                 background: "rgba(255,255,255,0.2)",
@@ -213,9 +214,10 @@ const HeroSection = () => {
                 transition: "all 0.3s ease",
                 fontfamily: "'Lora', serif",
               }}
+              className="explore-btn"
             >
               Explore Crops
-            </a>
+            </Link>
             <Link
               to="/signup"
               style={{
