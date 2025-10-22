@@ -1,6 +1,6 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // <-- added
+import axios from "axios";
 import "./Login.css";
 
 function Login() {
@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, { // ← Changed to 5001
         email,
         password,
       });
@@ -80,7 +80,7 @@ function Login() {
         </div>
 
         <p className="signup-text">
-          Don’t have an account? <a href="/signup">Sign up here</a>
+          Don't have an account? <a href="/signup">Sign up here</a>
         </p>
       </div>
     </div>

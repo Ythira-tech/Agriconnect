@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios"; // <-- added
+import axios from "axios";
 import "./Signup.css";
 
 function Signup() {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");       // added
-  const [password, setPassword] = useState(""); // added
-  const [confirmPassword, setConfirmPassword] = useState(""); // added
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,13 +20,13 @@ function Signup() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, { // ← Changed to 5001
         name: userName,
         email,
         password,
       });
 
-      alert(response.data.message); // "User registered successfully"
+      alert(response.data.message);
       navigate("/landing");
     } catch (error) {
       console.error("Signup error:", error.response?.data || error.message);

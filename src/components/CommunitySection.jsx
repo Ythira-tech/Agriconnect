@@ -25,7 +25,7 @@ const CommunitySection = () => {
         </div>
         <div className="community-image">
           <img
-            src="https://img.freepik.com/free-vector/farmer-community-concept-illustration_114360-19042.jpg"
+            src="https://i.pinimg.com/736x/d1/d6/fd/d1d6fde9b2b81c1ac28fe22135cf569f.jpg"
             alt="Farmers chatting"
           />
         </div>

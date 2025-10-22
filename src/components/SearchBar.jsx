@@ -1,10 +1,10 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaSpinner } from 'react-icons/fa';
 import './SearchBar.css';
 
-const SearchBar = ({ city, setCity, fetchWeather }) => {
+const SearchBar = ({ city, setCity, fetchWeather, loading = false }) => {
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') fetchWeather();
+    if (e.key === 'Enter' && !loading) fetchWeather();
   };
 
   return (
@@ -16,9 +16,10 @@ const SearchBar = ({ city, setCity, fetchWeather }) => {
         onChange={(e) => setCity(e.target.value)}
         onKeyPress={handleKeyPress}
         className="search-input"
+        disabled={loading}
       />
-      <button onClick={fetchWeather}>
-        <FaSearch />
+      <button onClick={fetchWeather} disabled={loading}>
+        {loading ? <FaSpinner className="spinner" /> : <FaSearch />}
       </button>
     </div>
   );

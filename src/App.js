@@ -21,13 +21,16 @@ import FutureDetails from "./pages/FutureDetails";
 import MaizeDetails from "./pages/MaizeDetails";
 import Weather from "./pages/Weather";
 import BuyandSell from "./pages/BuyandSell";
-import Chatbox from "./pages/Chatbox";
+import Chatboxx from "./pages/Chatboxx";
 import CropInfo from './pages/CropInfo';
 import FertilizerCalculator from './pages/FertilizerCalculator';
 import PlantingAndHarvestCalendar from './pages/PlantingAndHarvestCalendar';
 import IrrigationEstimator from './pages/IrrigationEstimator';
 import YieldProfitPredictor from './pages/YieldProfitPredictor';
 import CommunityChat from "./pages/CommunityChat";
+import Fruits from "./pages/Fruits";
+import Vegetables from "./pages/Vegetables";
+import PlantationCrops from "./pages/PlantationCrops";
 
 function App() {
   return (
@@ -74,7 +77,7 @@ function App() {
 
         <Route path="/maize-details" element={<MaizeDetails />} />
 
-        <Route path="/chatbox" element={<Chatbox />} />
+        <Route path="/chatboxx" element={<Chatboxx />} />
 
         <Route path="/weather" element={<Weather />} />
 
@@ -91,6 +94,12 @@ function App() {
          <Route path="/yield-predictor" element={<YieldProfitPredictor />} />
 
          <Route path="/community-chat" element={<CommunityChat />} />
+
+          <Route path="/fruits" element={<Fruits />} />
+
+        <Route path="/vegetables" element={<Vegetables />} />
+        
+        <Route path="/plantation-crops" element={<PlantationCrops />} />
       </Routes>
     </Router>
   );

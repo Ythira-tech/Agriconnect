@@ -28,7 +28,9 @@ function CropLibrary() {
       <div className="library-content">
         <h3>Fruits</h3>
         <p>Rich in vitamins and nutrients, fruits add diversity to farming income.</p>
+        <Link to="/fruits">
         <button className="learn-btn">Learn More</button>
+        </Link>
       </div>
     </div>
 
@@ -38,7 +40,9 @@ function CropLibrary() {
       <div className="library-content">
         <h3>Plantation Crops</h3>
         <p>Cash crops like tea and coffee sustain economies and create jobs.</p>
+        <Link to="/plantation-crops">
         <button className="learn-btn">Learn More</button>
+        </Link>
       </div>
     </div>
 
@@ -48,7 +52,9 @@ function CropLibrary() {
       <div className="library-content">
         <h3>Vegetables</h3>
         <p>Essential crops for nutrition and daily meals, grown across all regions.</p>
+        <Link to="/vegetables">
         <button className="learn-btn">Learn More</button>
+        </Link>
       </div>
     </div>
   </div>
