@@ -1,184 +1,48 @@
-/* ===== Weather Page Styling ===== */
 .weather-section {
   min-height: 100vh;
-  background: linear-gradient(120deg, #0b3d2e, #1a5e3e, #0e402c);
-  background-size: cover;
-  background-attachment: fixed;
-  color: black;
-  padding: 80px 20px;
+  padding: 2rem;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: white;
+}
+
+.weather-header {
   text-align: center;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 2rem;
 }
 
-/* Title */
-.weather-section h1 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  margin-bottom: 25px;
-  color: #fff;
-  letter-spacing: 1px;
+.weather-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
-/* Search Bar */
-.search-bar input {
-  padding: 12px 18px;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-  width: 280px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: black;
-
-}
-
-.search-bar button {
-  margin-left: 10px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-  background-color: #28a745;
-  color: black;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.search-bar button:hover {
-  background-color: #3ddc84;
-}
-
-/* Weather Cards */
-.weather-card {
-  margin-top: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 25px;
-  width: 85%;
-  max-width: 800px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.weather-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Forecast Section */
-.forecast-grid {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-}
-
-.forecast-item {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  color: black;
-  transition: 0.3s ease;
-}
-
-.forecast-item:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
-/* Weather Tips Section */
-.weather-tips {
-  margin-top: 60px;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  width: 85%;
-  max-width: 900px;
-  text-align: left;
-}
-
-.weather-tips h2 {
-  font-size: 1.8rem;
-  color: #b8ffce;
-  margin-bottom: 15px;
-}
-
-.weather-tips ul {
-  list-style: none;
-  padding: 0;
-}
-
-.weather-tips li {
-  margin-bottom: 10px;
+.weather-header p {
   font-size: 1.1rem;
-  color: #eaf5e9;
-}
-
-.weather-tips li::before {
-  content: "🌾 ";
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .weather-section h1 {
-    font-size: 2rem;
-  }
-
-  .search-bar input {
-    width: 200px;
-  }
-}
-
-/* src/pages/Weather.css */
-.weather-section {
-  min-height: 100vh;
-  padding: 70px 20px;
-  background: linear-gradient(160deg,#083b2b,#0f6a41); /* dark green vibe */
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  opacity: 0.9;
 }
 
 .search-area {
-  width: 100%;
-  display:flex;
-  justify-content:center;
-  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
-
-.weather-error {
-  color: #ffdada;
-  background: rgba(255, 0, 0, 0.08);
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-top: 6px;
-}
-
-/* Add these to your existing Weather.css */
 
 .weather-loading {
-  color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  margin: 20px 0;
-  font-size: 1.1rem;
+  border-radius: 15px;
+  margin: 2rem 0;
 }
 
 .loading-spinner {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top: 3px solid #fff;
-  width: 30px;
-  height: 30px;
+  border-top: 3px solid white;
+  width: 40px;
+  height: 40px;
   animation: spin 1s linear infinite;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 1rem;
 }
 
 @keyframes spin {
@@ -186,101 +50,79 @@
   100% { transform: rotate(360deg); }
 }
 
-.loading-note {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
 .weather-error {
-  color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.1);
-  padding: 15px;
-  border-radius: 10px;
-  margin: 20px 0;
-  border: 1px solid rgba(255, 107, 107, 0.3);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.error-dismiss {
-  background: none;
-  border: none;
-  color: #ff6b6b;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.error-dismiss:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-}
-
-/* Update search bar to show loading state */
-.search-bar button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-/* Add to your Weather.css */
-.weather-error {
-  color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.1);
-  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  margin: 20px 0;
-  border: 1px solid rgba(255, 107, 107, 0.3);
+  padding: 1.5rem;
+  margin: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .error-message {
   flex: 1;
+  color: #ff6b6b;
+  font-weight: 500;
 }
 
 .error-actions {
   display: flex;
-  gap: 10px;
+  gap: 1rem;
+  align-items: center;
 }
 
 .retry-button {
-  background: #28a745;
+  background: #00b894;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.retry-button:hover {
-  background: #3ddc84;
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.retry-button:hover:not(:disabled) {
+  background: #00a085;
 }
 
 .error-dismiss {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border: none;
-  color: #ff6b6b;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
+  color: white;
   width: 30px;
   height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
 }
 
 .error-dismiss:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .weather-section {
+    padding: 1rem;
+  }
+  
+  .weather-header h1 {
+    font-size: 2rem;
+  }
+  
+  .weather-error {
+    flex-direction: column;
+    text-align: center;
+  }
 }

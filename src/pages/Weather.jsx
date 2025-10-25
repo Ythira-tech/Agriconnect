@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import SearchBar from "../components/SearchBar";
-import WeatherCard from "../components/WeatherCard";
+import WeatherDisplay from "../components/WeatherDisplay"; // Renamed to avoid conflict
 import "./Weather.css";
 
 function Weather() {
@@ -13,16 +13,6 @@ function Weather() {
   const abortControllerRef = useRef(null);
 
   const apiKey = "a644785b550cbdaa20dd292178e8d4bb";
-
-  // Helper function to fetch with timeout
-  const fetchWithTimeout = (url, options = {}, timeout = 10000) => {
-    return Promise.race([
-      fetch(url, options),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Request timeout')), timeout)
-      )
-    ]);
-  };
 
   const fetchWeather = async () => {
     if (!city.trim()) {
@@ -45,39 +35,38 @@ function Weather() {
     try {
       console.log("Fetching weather for:", city);
 
-      // ✅ Use fetch with timeout
-      const weatherRes = await fetchWithTimeout(
+      // Use the 5-day forecast API
+      const response = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city.trim()}&appid=${apiKey}&units=metric`,
-        { signal },
-        10000 // 10 second timeout
+        { signal }
       );
 
-      if (!weatherRes.ok) {
-        if (weatherRes.status === 404) {
+      if (!response.ok) {
+        if (response.status === 404) {
           throw new Error(`City "${city}" not found. Please check spelling.`);
-        } else if (weatherRes.status === 401) {
+        } else if (response.status === 401) {
           throw new Error("API key error. Please check your OpenWeatherMap API key.");
-        } else if (weatherRes.status === 429) {
+        } else if (response.status === 429) {
           throw new Error("Too many requests. Please wait a moment and try again.");
         } else {
-          throw new Error(`Weather service error: ${weatherRes.status}`);
+          throw new Error(`Weather service error: ${response.status}`);
         }
       }
       
-      const weatherJson = await weatherRes.json();
-      console.log("Weather data received:", weatherJson);
+      const data = await response.json();
+      console.log("Weather data received:", data);
       
-      // Transform the data for your component
+      // Transform the data
       const locationData = {
-        name: weatherJson.city.name,
-        country: weatherJson.city.country
+        name: data.city.name,
+        country: data.city.country
       };
 
       // Current weather (first item in list)
-      const currentWeather = weatherJson.list[0];
+      const currentWeather = data.list[0];
       
-      // Process forecast data to get daily forecast - 7 DAYS
-      const dailyForecast = processForecastData(weatherJson.list);
+      // Process forecast data
+      const dailyForecast = processForecastData(data.list);
 
       setLocation(locationData);
       setWeatherData(currentWeather);
@@ -92,8 +81,8 @@ function Weather() {
       
       console.error("Error fetching weather:", err);
       
-      if (err.message === 'Request timeout') {
-        setError("Request timed out. Please check your internet connection and try again.");
+      if (err.message.includes('timeout') || err.message.includes('Failed to fetch')) {
+        setError("Network error. Please check your internet connection and try again.");
       } else {
         setError(err.message || "Failed to fetch weather data. Please try again.");
       }
@@ -106,12 +95,12 @@ function Weather() {
     }
   };
 
-  // Helper function to process forecast data into daily format
+  // Process forecast data into daily format
   const processForecastData = (list) => {
     const dailyData = {};
     
     list.forEach(item => {
-      const date = new Date(item.dt * 1000).toLocaleDateString();
+      const date = new Date(item.dt * 1000).toDateString(); // Use toDateString for consistency
       if (!dailyData[date]) {
         dailyData[date] = {
           dt: item.dt,
@@ -133,7 +122,7 @@ function Weather() {
         if (item.main.temp_max > dailyData[date].temp.max) {
           dailyData[date].temp.max = item.main.temp_max;
         }
-        // Use midday temperature for day temp (around 12:00)
+        // Use midday temperature for day temp
         const itemHour = new Date(item.dt * 1000).getHours();
         if (itemHour >= 11 && itemHour <= 14) {
           dailyData[date].temp.day = item.main.temp;
@@ -156,7 +145,10 @@ function Weather() {
 
   return (
     <div className="weather-section">
-      <h1>Weather Forecast</h1>
+      <div className="weather-header">
+        <h1>🌤️ Weather Forecast</h1>
+        <p>Get accurate weather predictions for your farming activities</p>
+      </div>
 
       <div className="search-area">
         <SearchBar 
@@ -170,33 +162,33 @@ function Weather() {
       {loading && (
         <div className="weather-loading">
           <div className="loading-spinner"></div>
-          Fetching weather data...
-          <div className="loading-note">This may take a few seconds</div>
+          <p>Fetching weather data...</p>
+          <small>This may take a few seconds</small>
         </div>
       )}
       
       {error && (
-  <div className="weather-error">
-    <div className="error-message">{error}</div>
-    <div className="error-actions">
-      <button 
-        onClick={fetchWeather} 
-        className="retry-button"
-        disabled={loading}
-      >
-        Retry
-      </button>
-      <button 
-        onClick={() => setError(null)} 
-        className="error-dismiss"
-      >
-        ×
-      </button>
-    </div>
-  </div>
-)}
+        <div className="weather-error">
+          <div className="error-message">{error}</div>
+          <div className="error-actions">
+            <button 
+              onClick={fetchWeather} 
+              className="retry-button"
+              disabled={loading}
+            >
+              Retry
+            </button>
+            <button 
+              onClick={() => setError(null)} 
+              className="error-dismiss"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
 
-      <WeatherCard
+      <WeatherDisplay
         location={location}
         weatherData={weatherData}
         forecast={forecast}

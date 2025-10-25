@@ -10,24 +10,45 @@ const CommunitySection = () => {
   };
 
   return (
-    <section className="community-section">
-      <div className="community-container">
-        <div className="community-text">
-          <h2>🌍 Farmer Community</h2>
-          <p>
-            Connect, share, and grow together! Our community lets farmers
-            exchange ideas, tips, and experiences in real time. Discuss crop
-            management, market prices, and modern farming solutions — all in one place.
+    <section className="connect-wrapper">
+      <div className="connect-content">
+        <div className="connect-info">
+          <div className="connect-header">
+            <span className="connect-badge">Community</span>
+            <h2 className="connect-title">Grow Together, Share Together</h2>
+          </div>
+          <p className="connect-description">
+            Join thousands of farmers sharing real-time insights, crop strategies, 
+            and market updates. Connect with agricultural experts and fellow farmers 
+            to elevate your farming journey.
           </p>
-          <button className="enter-chat-btn" onClick={handleEnterChat}>
-            💬 Enter Chat
+          <div className="connect-features">
+            <div className="feature">
+              <div className="feature-dot"></div>
+              <span>Real-time farmer discussions</span>
+            </div>
+            <div className="feature">
+              <div className="feature-dot"></div>
+              <span>Expert agricultural advice</span>
+            </div>
+            <div className="feature">
+              <div className="feature-dot"></div>
+              <span>Market trends & pricing</span>
+            </div>
+          </div>
+          <button className="connect-cta" onClick={handleEnterChat}>
+            Join Community
+            <span className="cta-arrow">→</span>
           </button>
         </div>
-        <div className="community-image">
-          <img
-            src="https://i.pinimg.com/736x/d1/d6/fd/d1d6fde9b2b81c1ac28fe22135cf569f.jpg"
-            alt="Farmers chatting"
-          />
+        <div className="connect-visual">
+          <div className="visual-frame">
+            <img
+              src="https://i.pinimg.com/736x/d1/d6/fd/d1d6fde9b2b81c1ac28fe22135cf569f.jpg"
+              alt="Farmers community discussion"
+              className="visual-image"
+            />
+          </div>
         </div>
       </div>
     </section>

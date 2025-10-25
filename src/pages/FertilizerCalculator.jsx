@@ -39,8 +39,13 @@ function FertilizerCalculator() {
   };
 
   return (
-    <Container className="py-5">
-      <Card className="p-4 shadow-sm border-success">
+    <Container className="py-5"
+    >
+      <Card className="p-4 shadow-sm border-success"
+       style={{
+            backgroundColor: "rgba(240, 255, 240, 0.7)", // Light green with transparency
+        }}
+      >
         <h2 className="text-success text-center fw-bold mb-4">
           📊 Fertilizer Calculator
         </h2>

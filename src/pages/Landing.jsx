@@ -1,8 +1,7 @@
-import React, { useState } from "react"; // Make sure useState is imported
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
 import { Nav } from "react-bootstrap";
 import "./Landing.css";
-// REMOVED: import SearchBar from "../components/SearchBar"; // Remove this line
 
 import SmartTools from "../components/SmartTools";
 import InfoHub from "../components/InfoHub";
@@ -13,7 +12,8 @@ import { FaUserCircle } from "react-icons/fa";
 
 function Landing() {
   const [showProfile, setShowProfile] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // Add this state
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate(); // Added for navigation
 
   const handleProfileClick = () => {
     setShowProfile(!showProfile);
@@ -23,8 +23,13 @@ function Landing() {
     e.preventDefault();
     if (searchTerm.trim()) {
       console.log("Global search for:", searchTerm);
-      // Implement your global search logic here
-      alert(`Searching entire website for: ${searchTerm}`);
+      
+      // Navigate to search results page with the search term
+      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      
+      // Alternative: Show immediate results (uncomment if you prefer this approach)
+      // setShowSearchResults(true);
+      
       setSearchTerm(''); // Clear input
     }
   };
@@ -60,7 +65,7 @@ function Landing() {
             </h1>
             <p className="hero-subtitle">Join thousands of farmers increasing yields with real-time insights and community support</p>
             
-            {/* FIXED: Global Search Bar */}
+            {/* Global Search Bar */}
             <div className="hero-search-container">
               <form onSubmit={handleSearch} className="global-search-form">
                 <input
@@ -117,7 +122,7 @@ function Landing() {
           )}
         </section>
 
-        {/* Other Sections - UNCHANGED */}
+        {/* Other Sections */}
         <InfoHub />
         <SmartTools />
         <CommunitySection />

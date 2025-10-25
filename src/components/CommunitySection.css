@@ -1,66 +1,200 @@
-.community-section {
-  padding: 4rem 2rem;
-  margin-top: 3rem;
-  text-align: center;
+.connect-wrapper {
+  padding: 5rem 2rem;
+  margin: 4rem 0;
 }
 
-.community-container {
+.connect-content {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  max-width: 1100px;
+  gap: 4rem;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 2rem;
-  border-radius: 20px;
+  flex-wrap: wrap;
 }
 
-.community-text {
+.connect-info {
   flex: 1;
-  min-width: 300px;
-  text-align: left;
+  min-width: 320px;
 }
 
-.community-text h2 {
-  font-size: 2.2rem;
+.connect-header {
+  margin-bottom: 2rem;
+}
+
+.connect-badge {
+  display: inline-block;
   color: #2e7d32;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid #2e7d32;
+  border-radius: 6px;
 }
 
-.community-text p {
+.connect-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #c8e6c9;
+  line-height: 1.2;
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.connect-description {
   font-size: 1.1rem;
-  color: #444;
+  color: #fff;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
-.enter-chat-btn {
-  background-color: #43a047;
+.connect-features {
+  margin-bottom: 2.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  background: #2e7d32;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.connect-cta {
+  background: #2e7d32;
   color: white;
   border: none;
-  padding: 0.9rem 1.8rem;
-  border-radius: 30px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(67, 160, 71, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.enter-chat-btn:hover {
-  background-color: #2e7d32;
-  transform: translateY(-3px);
+.connect-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
 }
 
-.community-image {
+.connect-cta:hover::before {
+  left: 100%;
+}
+
+.connect-cta:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+}
+
+.cta-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.connect-cta:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+.connect-visual {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
   display: flex;
   justify-content: center;
 }
 
-.community-image img {
+.visual-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visual-frame:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.visual-image {
   width: 100%;
-  max-width: 400px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 450px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.visual-frame:hover .visual-image {
+  transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .connect-wrapper {
+    padding: 3rem 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .connect-content {
+    gap: 2.5rem;
+    text-align: center;
+  }
+  
+  .connect-title {
+    font-size: 2rem;
+  }
+  
+  .connect-description {
+    font-size: 1rem;
+  }
+  
+  .feature {
+    justify-content: center;
+  }
+  
+  .connect-cta {
+    margin: 0 auto;
+    justify-content: center;
+  }
+  
+  .visual-frame {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .connect-wrapper {
+    padding: 2rem 1rem;
+  }
+  
+  .connect-title {
+    font-size: 1.75rem;
+  }
+  
+  .connect-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
 }

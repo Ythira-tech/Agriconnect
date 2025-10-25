@@ -42,7 +42,7 @@ const InfoHub = () => {
     environment. Think of it as your companion in navigating the challenges of modern 
     agriculture with confidence and clarity.
           </p>
-          <button className="hub-btn">Explore More</button>
+          
         </div>
 
         {/* RIGHT SIDE (existing timeline) */}

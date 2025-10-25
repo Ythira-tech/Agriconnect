@@ -12,7 +12,6 @@ function Chatboxx() {
   const socketRef = useRef(null);
   const messagesEndRef = useRef(null);
 
-  // Auto-scroll to bottom
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -22,15 +21,15 @@ function Chatboxx() {
   }, [messages]);
 
   useEffect(() => {
-    console.log("🔄 Attempting to connect to Socket.io...");
+    console.log("🔄 Connecting to AI Assistant Socket.io...");
     
-    // Connect to Socket.io
-    socketRef.current = io("http://localhost:5001", {
+    // Connect to Socket.io with PRIVATE CHAT namespace
+    socketRef.current = io("http://localhost:5001/private-chat", {
       transports: ['websocket', 'polling']
     });
     
     socketRef.current.on("connect", () => {
-      console.log("✅ Connected to server with ID:", socketRef.current.id);
+      console.log("✅ Connected to AI Assistant with ID:", socketRef.current.id);
       setIsConnected(true);
       setMessages(prev => [...prev.filter(msg => !msg.text.includes("Connecting")), 
         { text: "✅ Connected! How can I assist with your farming today?", sender: "bot" }
@@ -38,46 +37,60 @@ function Chatboxx() {
     });
 
     socketRef.current.on("disconnect", () => {
-      console.log("❌ Disconnected from server");
+      console.log("❌ Disconnected from AI Assistant");
       setIsConnected(false);
-      setMessages(prev => [...prev, 
-        { text: "❌ Disconnected from server. Please refresh.", sender: "bot" }
-      ]);
     });
 
     socketRef.current.on("connect_error", (error) => {
-      console.error("❌ Connection error:", error);
+      console.error("❌ AI Assistant connection error:", error);
       setIsConnected(false);
-      setMessages(prev => [...prev, 
-        { text: "❌ Failed to connect to chat server. Please refresh.", sender: "bot" }
-      ]);
     });
     
-    // Get chat history
-    socketRef.current.on("chat_history", (history) => {
-      console.log("📨 Received chat history:", history?.length, "messages");
+    // Get PRIVATE chat history
+    socketRef.current.on("private_chat_history", (history) => {
+      console.log("📨 Received PRIVATE chat history:", history?.length, "messages");
       if (history && history.length > 0) {
         const formattedMessages = history.map(msg => ({
           text: msg.text,
-          sender: msg.user === "AgriBot 🤖" ? "bot" : "user"
+          sender: msg.user === "AgriBot 🤖" ? "bot" : "user",
+          id: msg._id || msg.id // Add unique ID to prevent duplicates
         }));
         setMessages(formattedMessages);
       }
     });
 
-    // Listen for new messages
-    socketRef.current.on("receive_message", (newMsg) => {
-      console.log("📨 New message received:", newMsg);
+    // Listen for PRIVATE messages only
+    socketRef.current.on("receive_private_message", (newMsg) => {
+      console.log("📨 New PRIVATE message received:", newMsg);
+      
+      // Create a unique ID for the message to prevent duplicates
+      const messageId = newMsg._id || `msg-${Date.now()}-${Math.random()}`;
+      
+      setMessages(prev => {
+        // Check if this message already exists to prevent duplicates
+        const alreadyExists = prev.some(msg => 
+          msg.id === messageId || 
+          (msg.text === newMsg.text && msg.sender === (newMsg.user === "AgriBot 🤖" ? "bot" : "user"))
+        );
+        
+        if (alreadyExists) {
+          console.log("🔄 Skipping duplicate message");
+          return prev;
+        }
+        
+        return [...prev, {
+          text: newMsg.text,
+          sender: newMsg.user === "AgriBot 🤖" ? "bot" : "user",
+          id: messageId
+        }];
+      });
+      
       setIsLoading(false);
-      setMessages(prev => [...prev, {
-        text: newMsg.text,
-        sender: newMsg.user === "AgriBot 🤖" ? "bot" : "user"
-      }]);
     });
 
     return () => {
       if (socketRef.current) {
-        console.log("🧹 Cleaning up Socket.io connection");
+        console.log("🧹 Cleaning up AI Assistant connection");
         socketRef.current.disconnect();
       }
     };
@@ -86,26 +99,26 @@ function Chatboxx() {
   const handleSend = () => {
     if (!input.trim()) return;
 
-    console.log("📤 Sending message:", input);
+    console.log("📤 Sending PRIVATE message:", input);
 
-    // Add user message immediately
-    const newMessage = { text: input, sender: "user" };
-    setMessages(prev => [...prev, newMessage]);
+    // DON'T add user message immediately - wait for server confirmation
+    // This prevents the duplicate message issue
     setIsLoading(true);
 
-    // Send to backend
+    // Send to backend - PRIVATE CHAT
     if (socketRef.current && isConnected) {
       const user = JSON.parse(localStorage.getItem("user") || "{}");
-      socketRef.current.emit("send_message", {
+      socketRef.current.emit("send_private_message", {
         user: user.name || "Registered Farmer",
-        text: input
+        text: input,
+        chatType: "private"
       });
-      console.log("✅ Message emitted to server");
+      console.log("✅ PRIVATE message emitted to server");
     } else {
-      console.error("❌ Cannot send - not connected to server");
+      console.error("❌ Cannot send - not connected to AI Assistant");
       setIsLoading(false);
       setMessages(prev => [...prev, 
-        { text: "❌ Not connected to server. Please refresh and try again.", sender: "bot" }
+        { text: "❌ Not connected to AI Assistant. Please refresh and try again.", sender: "bot", id: `error-${Date.now()}` }
       ]);
     }
 
@@ -123,21 +136,21 @@ function Chatboxx() {
     <div className="chatbox-page">
       <div className="chatbox-container">
         <div className="chat-header">
-          🌍 AgriConnect Smart Assistant
+          🤖 AgriConnect Smart Assistant
           <div className={`chat-status ${isConnected ? "connected" : "disconnected"}`}>
-            {isConnected ? "✅ Connected" : "❌ Connecting..."} • Powered by AI
+            {isConnected ? "✅ AI Connected" : "❌ Connecting..."} • Private Chat
           </div>
         </div>
 
         <div className="chat-messages">
           {messages.map((msg, i) => (
-            <div key={i} className={`chat-message ${msg.sender}`}>
+            <div key={msg.id || i} className={`chat-message ${msg.sender}`}>
               {msg.text}
             </div>
           ))}
           {isLoading && (
             <div className="chat-message bot loading">
-              🌱 Thinking...
+              🌱 AI Thinking...
             </div>
           )}
           <div ref={messagesEndRef} />
@@ -151,8 +164,8 @@ function Chatboxx() {
             onKeyPress={handleKeyPress}
             placeholder={
               isConnected 
-                ? "Ask about crops, weather, pests, or farming advice..." 
-                : "Connecting to server..."
+                ? "Ask AI about crops, weather, pests, or farming advice..." 
+                : "Connecting to AI Assistant..."
             }
             disabled={!isConnected || isLoading}
           />
@@ -165,10 +178,8 @@ function Chatboxx() {
           </button>
         </div>
         
-        {/* Connection status */}
         <div className="connection-info">
-          Status: {isConnected ? `Connected ✅` : 'Disconnected ❌'}
-          {socketRef.current?.id && ` | ID: ${socketRef.current.id}`}
+          AI Assistant: {isConnected ? `Connected ✅` : 'Disconnected ❌'}
         </div>
       </div>
     </div>

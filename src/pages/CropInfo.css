@@ -1,0 +1,125 @@
+.crop-info-container {
+  background: linear-gradient(135deg, #f8fff8 0%, #f0f8f0 100%);
+  min-height: 100vh;
+}
+
+.crop-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1b5e20;
+  margin-bottom: 0.5rem;
+}
+
+.crop-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-card {
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.crop-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.crop-header {
+  border-radius: 20px 20px 0 0;
+}
+
+.crop-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.crop-scientific {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.crop-main-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.crop-tabs .nav-link {
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border: none !important;
+}
+
+.crop-tabs .nav-link.active {
+  background: #f8fff8 !important;
+  color: #1b5e20 !important;
+  border-bottom: 3px solid #1b5e20 !important;
+}
+
+.detail-card {
+  background: #f8fff8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid #4caf50;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-card.small {
+  padding: 1rem;
+}
+
+.detail-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.detail-title {
+  font-weight: 600;
+  color: #1b5e20;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-text {
+  color: #444;
+  line-height: 1.5;
+}
+
+.pest-disease-card {
+  border-left: 4px solid #ff9800;
+  border-radius: 10px;
+}
+
+.pest-disease-card .text-danger {
+  border-left-color: #f44336;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crop-main-title {
+    font-size: 2.2rem;
+  }
+  
+  .crop-name {
+    font-size: 1.6rem;
+  }
+  
+  .detail-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
