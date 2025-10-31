@@ -95,17 +95,7 @@ function Signup() {
           </button>
         </form>
 
-        <div className="or-section">
-          <span></span>
-          <p>or</p>
-          <span></span>
-        </div>
-
-        <div className="social-icons">
-          <button className="social-btn fb">f</button>
-          <button className="social-btn tw">t</button>
-          <button className="social-btn g">G</button>
-        </div>
+        
 
         <p className="signin-text">
           Already have an account? <Link to="/login">Log in here</Link>

@@ -1,8 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./HeroSection.css";
-import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  // Limited search results data (preview only)
+  const previewResults = {
+    "maize": {
+      title: "Maize Farming Guide",
+      preview: "Complete guide to maize cultivation including planting seasons, soil requirements, and pest management...",
+      type: "Crop Guide",
+      requiresSignup: true
+    },
+    "tomatoes": {
+      title: "Tomato Cultivation",
+      preview: "Learn about greenhouse and open-field tomato farming techniques...",
+      type: "Crop Guide", 
+      requiresSignup: true
+    },
+    "fertilizer": {
+      title: "Fertilizer Calculator",
+      preview: "Calculate exact fertilizer requirements based on your soil test results...",
+      type: "Tool",
+      requiresSignup: true
+    },
+    "irrigation": {
+      title: "Smart Irrigation Methods",
+      preview: "Water-efficient irrigation techniques that can save up to 50% water...",
+      type: "Guide",
+      requiresSignup: true
+    },
+    "marketplace": {
+      title: "Farm Marketplace",
+      preview: "Buy and sell crops, seeds, and farm equipment with verified sellers...",
+      type: "Marketplace",
+      requiresSignup: true
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      // Show limited preview or redirect to signup for full access
+      const searchQuery = searchTerm.toLowerCase();
+      const hasPreview = Object.keys(previewResults).some(key => 
+        searchQuery.includes(key)
+      );
+
+      if (hasPreview) {
+        // For demo, show alert about signup requirement
+        alert(`"${searchTerm}" - Full content requires signup. Join AgriConnect for complete access to farming guides, tools, and marketplace.`);
+        navigate("/signup");
+      } else {
+        // For other searches, show generic signup prompt
+        alert(`Search for "${searchTerm}" - Sign up to access AgriConnect's complete farming resources, marketplace, and community features.`);
+        navigate("/signup");
+      }
+      setSearchTerm(""); // Clear input after search
+    }
+  };
+
   return (
     <section className="hero">
       <div
@@ -52,7 +111,7 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        {/* Search Bar (Top Middle) */}
+        {/* Search Bar (Top Middle) - UPDATED */}
         <div
           style={{
             position: "absolute",
@@ -63,6 +122,7 @@ const HeroSection = () => {
           }}
         >
           <form
+            onSubmit={handleSearch}
             style={{
               display: "flex",
               alignItems: "center",
@@ -75,13 +135,15 @@ const HeroSection = () => {
           >
             <input
               type="text"
-              placeholder="Search farmers, crops, resources..."
+              placeholder="Try: maize, tomatoes, fertilizer, irrigation..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               style={{
                 border: "none",
                 outline: "none",
                 background: "transparent",
                 color: "#fff",
-                width: "300px",
+                width: "320px",
                 fontSize: "16px",
                 fontWeight: "500",
                 padding: "6px",
@@ -105,6 +167,17 @@ const HeroSection = () => {
               Search
             </button>
           </form>
+          {/* Search hint */}
+          <p style={{
+            color: "rgba(255,255,255,0.8)",
+            fontSize: "12px",
+            textAlign: "center",
+            marginTop: "5px",
+            textShadow: "1px 1px 2px rgba(0,0,0,0.5)",
+            fontFamily: "'Lora', serif",
+          }}>
+            Sign up to access complete farming resources
+          </p>
         </div>
 
         {/* Fancy Transparent Links (Top Right) */}
@@ -247,8 +320,8 @@ const HeroSection = () => {
               fontFamily: "'Lora', serif",
             }}
           >
-            “A farmer is not just growing crops, <br /> they are growing hope
-            for tomorrow.”
+            "A farmer is not just growing crops, <br /> they are growing hope
+            for tomorrow."
           </p>
         </div>
 

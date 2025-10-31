@@ -1,0 +1,252 @@
+/* src/pages/PageTemplate.css */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.back-link {
+  display: inline-block;
+  color: #2c5aa0;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #1e4a8a;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.page-header p {
+  font-size: 1.3rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.main-content h2 {
+  color: #2c5aa0;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.content-section, .tech-category, .feature, .mission-section, .vision-section, .values-section, .impact-section, .team-section {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #27ae60;
+}
+
+.content-section h3, .tech-category h3, .feature h3 {
+  color: #2c5aa0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.content-section ul, .feature ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.content-section li, .feature li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.content-section li:last-child, .feature li:last-child {
+  border-bottom: none;
+}
+
+.content-section strong, .feature strong {
+  color: #2c5aa0;
+}
+
+.tech-categories, .community-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tech-category, .feature {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #2c5aa0;
+}
+
+.success-story, .case-study, .testimonial {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  border-left: 4px solid #1976d2;
+}
+
+.success-story h3, .case-study h3, .testimonial h3 {
+  color: #1976d2;
+  margin-bottom: 1rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.value-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.value-item h4 {
+  color: #2c5aa0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.stat h4 {
+  font-size: 2.5rem;
+  color: #27ae60;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.stat p {
+  color: #666;
+  font-weight: 600;
+}
+
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.resource-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+}
+
+.resource-card h4 {
+  color: #2c5aa0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.resource-card ul, .resource-card ol {
+  padding-left: 1.2rem;
+}
+
+.resource-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.cta-sidebar {
+  display: block;
+  background: #27ae60;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.cta-sidebar:hover {
+  background: #219653;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .main-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .tech-categories, .community-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .values-grid, .impact-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .values-grid, .impact-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-section, .tech-category, .feature {
+    padding: 1rem;
+  }
+}

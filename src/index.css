@@ -11,3 +11,205 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ===== GLOBAL MOBILE FIRST (iPhone 4 and small phones) ===== */
+/* iPhone 4: 320x480 pixels */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    padding: 8px;
+    margin: 0 auto;
+}
+
+/* Stack everything vertically on very small screens */
+.navbar, 
+.menu, 
+.grid-container,
+.products-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section h1 {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin: 4px 0;
+}
+
+/* ===== SMALL PHONES (375px and up - iPhone 6/7/8 and larger phones) ===== */
+@media (min-width: 375px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 12px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .button {
+        width: auto;
+        margin: 4px;
+    }
+}
+
+/* ===== TABLETS (768px and up) ===== */
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        max-width: 720px;
+        padding: 20px;
+    }
+    
+    .navbar, 
+    .menu {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .grid-container,
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.2rem;
+        text-align: left;
+    }
+}
+
+/* ===== DESKTOP (1024px and up) ===== */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 980px;
+        padding: 30px;
+    }
+    
+    .grid-container,
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* ===== LARGE DESKTOP (1200px and up) ===== */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .grid-container,
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ===== TV SCREENS (1600px and up) ===== */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+        padding: 50px;
+    }
+    
+    body {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    
+    .hero-section h1 {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .grid-container,
+    .products-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 40px;
+    }
+    
+    .button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+    
+    /* Larger navigation for TV viewing distance */
+    .navbar {
+        padding: 2rem 0;
+    }
+    
+    .nav-item {
+        font-size: 1.3rem;
+        margin: 0 1.5rem;
+    }
+}
+
+/* ===== EXTRA LARGE TV SCREENS (1920px and up - Full HD to 4K) ===== */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    body {
+        font-size: 20px;
+    }
+    
+    .hero-section h1 {
+        font-size: 4rem;
+    }
+    
+    .grid-container,
+    .products-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 50px;
+    }
+}
+
+/* ===== MASSIVE TV SCREENS (2500px and up - 4K and beyond) ===== */
+@media (min-width: 2500px) {
+    .container {
+        max-width: 2400px;
+    }
+    
+    body {
+        font-size: 24px;
+    }
+    
+    .hero-section h1 {
+        font-size: 5rem;
+    }
+    
+    /* Prevent content from becoming too wide */
+    .content-section {
+        max-width: 2000px;
+        margin: 0 auto;
+    }
+}
